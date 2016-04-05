@@ -1,0 +1,19 @@
+<ion-navbar *navbar>
+  <ion-title>Let's Run</ion-title>
+</ion-navbar>
+
+<ion-content class="map">
+	<button [hidden]="isTracking" full class="btn-start" (click)="startTracking()">
+		Run
+	</button>
+	<button [hidden]="!isTracking" full danger class="btn-start" (click)="stopTracking()">
+		Stop
+	</button>
+  <div id="gmap"></div>
+  <div class="lat-lng">{{lat}}, {{lng}}</div>
+  <div class="tracking-info">
+  	<div class="elapsed-time">{{paddingZero(minute) || '00'}}:{{paddingZero(second) || '00'}}</div>
+  	<div class="distance">{{distance.toFixed(2)}} <span class="unit">km</span></div>
+  	<div class="velocity">{{velocity.toFixed(2)}}<span class="unit">kmph</span></div>
+  </div>
+</ion-content>
